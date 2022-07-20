@@ -17,6 +17,8 @@ import {
   Address,
 } from "./restaurant-info.card";
 
+import { Favourite } from "../../../components/favourite/favourite.component";
+
 export const RestaurantInfo = ({ restaurant = {} }) => {
   const {
     name = "Some Restaurant",
@@ -35,6 +37,7 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
 
   return (
     <RestaurantCard elevation={5}>
+      <Favourite restaurant={restaurant} />
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
         <Text variant="label">{name}</Text>
