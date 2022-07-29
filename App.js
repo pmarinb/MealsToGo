@@ -1,5 +1,5 @@
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React from "react";
 import { ThemeProvider } from "styled-components/native";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
@@ -39,8 +39,6 @@ const auth = getAuth(app);
 export { auth };
 
 export default function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   let [oswaldLoaded] = useOswald({
     Oswald_400Regular,
   });
