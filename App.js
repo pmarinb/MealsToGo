@@ -3,6 +3,17 @@ import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components/native";
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  API_KEY,
+  AUTH_DOMAIN,
+  PROJECT_ID,
+  STORAGE_BUCKET,
+  MESSAGING_SENDER,
+  APP_ID,
+  EMAIL,
+  PASSWORD,
+} from "@env";
+
 import { theme } from "./src/infrastructure/theme";
 import { Navigation } from "./src/infrastructure/navigation";
 
@@ -17,16 +28,14 @@ import { LocationContextProvider } from "./src/services/location/location.contex
 import { FavouritesContextProvider } from "./src/services/favourites/favourites.context";
 
 const firebaseConfig = {
-  apiKey: "api-key",
-  authDomain: "project-id.firebaseapp.com",
-  databaseURL: "https://project-id.firebaseio.com",
-  projectId: "project-id",
-  storageBucket: "project-id.appspot.com",
-  messagingSenderId: "sender-id",
-  appId: "app-id",
-  measurementId: "G-measurement-id",
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  projectId: PROJECT_ID,
+  storageBucket: STORAGE_BUCKET,
+  messagingSenderId: MESSAGING_SENDER,
+  appId: APP_ID,
 };
-
+console.log(API_KEY);
 initializeApp(firebaseConfig);
 const auth = getAuth();
 
@@ -34,7 +43,7 @@ export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    signInWithEmailAndPassword(auth, "email", "password")
+    signInWithEmailAndPassword(auth, EMAIL, PASSWORD)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
