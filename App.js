@@ -22,9 +22,6 @@ import {
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
-import { RestaurantsContextProvider } from "./src/services/restaurants/restaurant.context";
-import { LocationContextProvider } from "./src/services/location/location.context";
-import { FavouritesContextProvider } from "./src/services/favourites/favourites.context";
 
 const firebaseConfig = {
   apiKey: API_KEY,
